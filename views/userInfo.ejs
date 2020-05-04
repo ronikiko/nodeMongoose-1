@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= title %></title>
+</head>
+<body>
+  <h1> <%= title %></h1> 
+  <%- message ? message : '' %>
+   <form action="/update" method="POST">
+    <input type="hidden" name="id" value="<%= user.id %>">
+        username: <br>
+        <input type="text" name="username" value="<%= user.username %>"><br>
+        lastname: <br>
+        <input type="text" name="lastname" value="<%= user.lastname  %>"><br>
+        <input type="submit" value="Update">
+    </form>
+  
+</body>
+</html>
