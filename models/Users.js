@@ -8,6 +8,9 @@ const usersSchema = mongoose.Schema({
   lastname: {
     type: String,
   },
+  image: {
+    type: String
+  }
 });
 
 module.exports = mongoose.model("users", usersSchema);

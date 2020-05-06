@@ -8,7 +8,12 @@ var usersRouter = require("./routes/users");
 const connectToDb = require("./config/db");
 var app = express();
 
+
+// connecting to mlab database
+// config/db
 connectToDb();
+
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");

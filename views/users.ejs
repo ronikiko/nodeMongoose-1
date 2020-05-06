@@ -1,24 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+<%- include('includes/header.ejs') %>
+
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <a class="btn btn-success add" href="/create">Create New User</a>
+    <div class="container">
     <% users.forEach(user => { %>
-      <h2><%= user.username%> <%= user.lastname%></h2>
-      <div>
-        <a href="/deleteUser/<%= user._id%>">Delete</a>
-        <a href="/update/<%= user._id%>">Update</a>
-      </div>
+        <div class="card" style="width: 16rem;">
+          <img src="<%= user.image %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= user.username%> <%= user.lastname%></h5>
+            <p class="card-text">Some quick  </p>
+            <a class="btn btn-danger" href="/deleteUser/<%= user._id%>">Delete</a>
+            <a class="btn btn-primary" href="/update/<%= user._id%>">Update</a>
+          </div>
+        </div>
     <% }) %>
-
+</div>
 <br>
 <br>
 <br>
 <br>
-    <a href="/create">Create New User</a>
+    
   </body>
 </html>

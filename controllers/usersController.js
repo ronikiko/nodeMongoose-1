@@ -62,6 +62,7 @@ exports.postCreateUser = (req, res) => {
   const user = new Users({
     username,
     lastname,
+    image: 'https://lh3.googleusercontent.com/proxy/bjI62-Aser18HS6rZs4h0wSBMp7hDLY6NC79tLLWxiMLxerNOAolqNkuFZDnaZEo834H1Yf7-Qn5Z1iZyT4NgKsC8EvC8Hu2bfabnCT-oHf6ma8vwxXv19AHEHnaX9rXf8vHfHtMU0Ooy3oOawzJBcBHETjUkU-EIPbBLaUXZrUcy7rTIvJTRE8j9HC2tSJjhpU5i8o5f_FqvSCc7xu5'
   });
   user.save().then(() => {
     res.redirect("/");
