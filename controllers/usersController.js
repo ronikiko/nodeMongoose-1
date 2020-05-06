@@ -1,4 +1,4 @@
-const  avatar  = require('../models/GravararApi')
+const { avatar } = require('../models/GravararApi')
 const Users = require("../models/Users");
 
 exports.getAllUsers = async (req, res) => {
@@ -42,9 +42,12 @@ exports.postUpdate = async (req, res) => {
     username: req.body.username,
     lastname: req.body.lastname,
   });
-
-  await Users.findByIdAndUpdate(id, updateUser);
-  res.redirect("/");
+  try {
+    await Users.findByIdAndUpdate(id, updateUser);
+    res.redirect("/");
+  } catch (err) {
+    console.log(err)
+  }
 };
 
 exports.postDelete = async (req, res) => {
@@ -55,27 +58,27 @@ exports.postDelete = async (req, res) => {
 };
 
 exports.getCreateUser = (req, res) => {
-  res.render("create", { title: "Create User Page"  });
+  res.render("create", { title: "Create User Page" });
 };
 
 exports.postCreateUser = async (req, res) => {
   const { username, lastname, gender } = req.body;
-  try{
-      const avatarImage = await avatar(gender)
-      const imageUrl = avatarImage.data.results[0].picture.large
-      const user = new Users({
-        username,
-        lastname,
-        image:imageUrl
-      });
+  try {
+    const avatarImage = await avatar(gender)
+    const imageUrl = avatarImage.data.results[0].picture.large
+    const user = new Users({
+      username,
+      lastname,
+      image: imageUrl
+    });
 
-      await user.save()
-      res.redirect("/");
+    await user.save()
+    res.redirect("/");
 
-  } catch(err) {
-      console.log(err)
+  } catch (err) {
+    console.log(err)
   }
-  
-  
-  
+
+
+
 };

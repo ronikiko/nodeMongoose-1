@@ -4,6 +4,11 @@ body {
   position: relative;
 }
 
+.main{
+  width: 40%;
+  height: 100%;
+}
+
 a {
   color: #00B7FF;
 }
@@ -13,9 +18,16 @@ a {
   justify-content: space-between;
   align-items: center;
 }
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 .card {
   margin-bottom: 10px;
 }
+
 .add {
   position: absolute;
   right:70px;

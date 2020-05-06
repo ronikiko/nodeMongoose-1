@@ -4,4 +4,4 @@ const avatar = (gender) => {
     return axios.get(`https://randomuser.me/api/?gender=${gender}`)
 }
 
-module.exports = avatar
+module.exports = { avatar }
