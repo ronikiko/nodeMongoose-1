@@ -3,7 +3,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-
+const session = require('express-session')
 var usersRouter = require("./routes/users");
 const connectToDb = require("./config/db");
 var app = express();
@@ -13,7 +13,12 @@ var app = express();
 // config/db
 connectToDb();
 
-
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+  
+}))
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");

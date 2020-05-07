@@ -58,11 +58,12 @@ exports.postDelete = async (req, res) => {
 };
 
 exports.getCreateUser = (req, res) => {
-  res.render("create", { title: "Create User Page" });
+  res.render("create", { title: "Create User Page"});
 };
 
 exports.postCreateUser = async (req, res) => {
   const { username, lastname, gender } = req.body;
+
   try {
     const avatarImage = await avatar(gender)
     const imageUrl = avatarImage.data.results[0].picture.large
@@ -78,7 +79,5 @@ exports.postCreateUser = async (req, res) => {
   } catch (err) {
     console.log(err)
   }
-
-
 
 };

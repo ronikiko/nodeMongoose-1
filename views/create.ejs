@@ -1,19 +1,41 @@
 <%- include('includes/header.ejs') %>
+
+<div class="container-fluid center">
+  <div class="main">
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-  
-    <form action="/create" method="POST">
-       
-        username: <br>
-        <input type="text" name="username"><br><br>
-        lastname: <br>
-        <input type="text" name="lastname"><br><br>
-      <select name="gender" id="">
-        <option value="female">female</option>
-        <option value="male">male</option>
-      </select>
-       <br><br>
-        <input type="submit" value="Create New User">
-    </form>
+    
+      <form action="/create" method="POST">
+        <div class="form-group">
+          <label for="username">User Name</label>
+          <input type="text" class="form-control" name="username" id="username"
+              aria-describedby="emailHelp">
+          <small id="nameHelp" class="form-text text-muted">
+              Please provide a user name.
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="lastname">Last Name</label>
+          <input type="text" class="form-control" name="lastname" id="lastname"
+              aria-describedby="emailHelp">
+          <small id="emailHelp" class="form-text text-muted">
+            Please provide a user last name.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <select class="form-control" name="gender" id="">
+            <option value="female">female</option>
+            <option value="male">male</option>
+          </select>
+          <small id="emailHelp" class="form-text text-muted">
+            Please select male or female.
+          </small>
+        </div>
+
+          <input class="btn btn-success btn-block" type="submit" value="Create New User">
+      </form>
+    </div>
+  </div>
   </body>
 </html>
