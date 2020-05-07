@@ -4,10 +4,10 @@ const Users = require("../models/Users");
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await Users.find({});
-    if (users) return res.render("users", { title: "users", users });
+    if (users) return res.render("users", { title: "Users", users  });
   } catch (error) {
     console.log(error);
-    return res.render("users", { title: "users", users: [] });
+    return res.render("users", { title: "Users", users: [] });
   }
 };
 

@@ -5,7 +5,7 @@
 <a class="btn btn-success add" href="/create">Create New User</a>
 <h1>Count of <%= users.length %> Users</h1>
 <div class="container">
-  <% users.forEach(user => { %>
+  <% users.reverse().forEach(user => { %>
   <div class="card" style="width: 16rem;">
     <img src="<%= user.image %>" class="card-img-top" alt="...">
     <div class="card-body">

@@ -3,8 +3,8 @@
     <div class="main">
         <h1> <%= title %></h1>
         <%- message ? message : '' %>
-
-        <img src="<%= user.image%>" alt="">
+        <div class="flex">
+        <img src="<%= user.image%>" alt="" class="img-thumbnail">
 
         <form action="/update" method="POST">
             <div class="form-group">
@@ -22,9 +22,10 @@
                     else.</small>
             </div>
             <input type="hidden" name="id" value="<%= user.id %>">
-            <button type="submit" class="btn btn-primary btn-block">Update User</button>
+            <button type="submit" class="btn btn-outline-success btn-block">Update User</button>
 
         </form>
+    </div>
     </div>
 </div>
 </body>
