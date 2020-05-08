@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const session = require('express-session')
 var usersRouter = require("./routes/users");
+var personseRouter = require("./routes/personesRouter");
 const connectToDb = require("./config/db");
 var app = express();
 
@@ -30,6 +31,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", usersRouter);
+app.use("/persones", personseRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
